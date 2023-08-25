@@ -1,0 +1,100 @@
+{% block head %}
+<title>Simple Cloud Manager</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Simple Cloud System With Load Balancer</h1>
+
+    <div>
+            <h1 style="text-align: center">Light Pod | Active: {{l_pod[0]}} </h1>
+    <table style="border:1px solid black;margin-left:auto;margin-right:auto;">
+        <tr>
+            <th>Node ID</th>
+            <th>Status</th>
+        </tr>
+
+         {% for node in l_nodes %}
+            <tr>
+
+                <td>{{ node["name"] }}</td>
+
+                {% if node["status"] %}
+                  <td>
+                      {{ "Online"}}
+                  </td>
+               {% endif %}
+
+
+                {% if not node["status"] %}
+                  <td>
+                      {{ "New"}}
+                  </td>
+               {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+    </div>
+
+  <div>
+          <h1 style="text-align: center">Medium Pod | Active: {{m_pod[0]}} </h1>
+    <table style="border:1px solid black;margin-left:auto;margin-right:auto;">
+        <tr>
+            <th>Node ID</th>
+            <th>Status</th>
+        </tr>
+         {% for node in m_nodes %}
+            <tr>
+
+                <td>{{ node["name"] }}</td>
+
+                {% if node["status"] %}
+                  <td>
+                      {{ "Online"}}
+                  </td>
+               {% endif %}
+
+
+                {% if not node["status"] %}
+                  <td>
+                      {{ "New"}}
+                  </td>
+               {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+    </div>
+
+  <div>
+          <h1 style="text-align: center">Heavy Pod | Active: {{h_pod[0]}} </h1>
+    <table style="border:1px solid black;margin-left:auto;margin-right:auto;">
+        <tr>
+            <th>Node ID</th>
+            <th>Status</th>
+        </tr>
+         {% for node in h_nodes %}
+            <tr>
+
+                <td>{{ node["name"] }}</td>
+
+                {% if node["status"] %}
+                  <td>
+                      {{ "Online"}}
+                  </td>
+               {% endif %}
+
+
+                {% if not node["status"] %}
+                  <td>
+                      {{ "New"}}
+                  </td>
+               {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+    </div>
+
+    <div><a href="http://10.140.17.126/render_requests"><h1 style="text-align: center">Request Monitor</h1></a></div>
+
+</div>
+{% endblock %}
