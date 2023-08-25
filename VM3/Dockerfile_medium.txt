@@ -1,0 +1,6 @@
+FROM python
+
+COPY /m_app .
+
+RUN pip3 install -r m_requirements.txt
+CMD ["python3", "m_job.py", "16000"]

@@ -1,0 +1,6 @@
+FROM python
+
+COPY /h_app .
+
+RUN pip3 install -r h_requirements.txt
+CMD ["python3", "h_job.py", "17000"]
